@@ -27,18 +27,21 @@ def guessing_game():
             except EOFError as e:
                 print(f"Invalid input: {e}")
 
-        count += 1
-        if guessing == answer:
-            print("You got it! The hidden number is " + str(answer))
-            print("It took you " + str(count) + " guess(es)!")
-            break
-        else:
-            print('Wrong! Guess count: ' + str(count))
+        if min <= guessing and guessing <= max:
+            count += 1
+            if guessing == answer:
+                print("You got it! The hidden number is " + str(answer))
+                print("It took you " + str(count) + " guess(es)!")
+                break
+            else:
+                print('Wrong! Guess count: ' + str(count))
 
-        if guessing < answer and guessing >= min:
-            min = guessing + 1
-        elif guessing > answer and guessing <= max:
-            max = guessing - 1
+            if guessing < answer:
+                min = guessing + 1
+            elif guessing > answer:
+                max = guessing - 1
+        else:
+            print("It's out of range! Please try agian.")
 
 
 # https://stackoverflow.com/questions/419163/what-does-if-name-main-do
