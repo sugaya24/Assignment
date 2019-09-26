@@ -52,10 +52,7 @@ def end_other(a, b):
     if len(a) < len(b):
         a, b = b, a
     a, b = a.lower(), b.lower()
-    if a[len(a) - len(b):] == b:
-        return True
-    else:
-        return False
+    return a[len(a) - len(b):] == b
 
 
 def count_evens(nums):
