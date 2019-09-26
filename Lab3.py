@@ -87,17 +87,15 @@ def sum13(nums):
     Return the sum of the numbers in the list, returning 0 for an empty array.
     Except the number 13 is very unlucky, so it does not count and numbers that come immediately after a 13 also do not count.
     """
-    ans = 0
-    if len(nums) == 0:
-        return 0
-    for i in range(len(nums)):
-        if i == 0:
-            if nums[i] != 13:
-                ans += nums[i]
+    i = 0
+    total = 0
+    while i < len(nums):
+        if nums[i] != 13:
+            total += nums[i]
+            i += 1
         else:
-            if nums[i] != 13 and nums[i - 1] != 13:
-                ans += nums[i]
-    return ans
+            i += 2
+    return total
 
 
 def sum67(nums):
